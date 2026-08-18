@@ -1,19 +1,21 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int left=0;
-        string s1="";
-        for(char a:s){
-            if(isalnum(a))
-                s1+=tolower(a);
+        string news="";
+        for(char i:s){
+            if(isalnum(i)){
+                news+=tolower(i);
+            }
         }
-        int right=s1.length()-1;
-        while(left<=right){
-            if(s1[left]!=s1[right])
-                return false;
-            else{
+        int left=0;
+        int right=news.length()-1;
+        while(left<right){
+            if(news[left]==news[right]){
                 left++;
                 right--;
+            }
+            else{
+                return false;
             }
         }
         return true;
